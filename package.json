@@ -1,0 +1,29 @@
+{
+  "name": "Sistema_de_compartilhamento_de_imagens_com_TDD_e_MongoDB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosbandelli/Sistema_de_compartilhamento_de_imagens_com_TDD_e_MongoDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosbandelli/Sistema_de_compartilhamento_de_imagens_com_TDD_e_MongoDB/issues"
+  },
+  "homepage": "https://github.com/carlosbandelli/Sistema_de_compartilhamento_de_imagens_com_TDD_e_MongoDB#readme",
+  "dependencies": {
+    "@types/jest": "^27.0.1",
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "jest": "^27.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.8",
+    "supertest": "^6.1.6"
+  }
+}
