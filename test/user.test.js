@@ -73,3 +73,43 @@ describe("Cadastro de úsuario", () => {
         })
     })
 })
+
+describe("Autenticação", () => {
+    test("Deve me retornar um token quando logar", () => {
+       return request.post("/auth")
+       .send({email: mainUser.email, password: mainUser.password})
+       .then(res => {
+           expect(res.statusCode).toEqual(200)
+           expect(res.body.token).toBeDefined()
+       })
+       .catch(err => {
+           fail(err)
+       })
+    })
+
+    test("Deve impedir que um usuário não cadastrado se logue", () => {
+        return request.post("/auth")
+       .send({email: "umemailqualquer@sahushuash.com", pasword: "123123"})
+       .then(res => {
+           expect(res.statusCode).toEqual(403)
+           expect(res.body.errors.email).toEqual("E-mail não cadastrado")
+       })
+       .catch(err => {
+           fail(err)
+       })
+    })
+
+    test("Deve impedir que um usuário cadastrado se logue com uma senha errada", () => {
+
+        return request.post("/auth")
+       .send({email: mainUser.email, password: "bolinha"})
+       .then(res => {
+           expect(res.statusCode).toEqual(403)
+           expect(res.body.errors.password).toEqual("Senha incorreta")
+       })
+       .catch(err => {
+           fail(err)
+       })
+    })
+
+})
